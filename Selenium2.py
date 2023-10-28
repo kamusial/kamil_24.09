@@ -13,8 +13,6 @@ def czekaj_na_id(element_id):
     oczekiwator = WebDriverWait(driver, timeout)   #jak długo czekać i gdzie
     return oczekiwator.until(znaleziono, timeout_mesage)  #zwrotka
 
-
-
 driver = webdriver.Chrome()
 driver.get('https://www.saucedemo.com')
 
