@@ -10,39 +10,36 @@ def make_screenshot(driver):
     screen_name = 'C:\\Users\\vdi-student\\Desktop\\' + 'screen' + short_date + '.png'
     driver.get_screenshot_as_file(screen_name)
 
-driver = webdriver.Chrome()
-driver.maximize_window()
-driver.get('https://www.saucedemo.com/')
+if __name__ == '__main__':
+    driver = webdriver.Chrome()
+    driver.maximize_window()
+    driver.get('https://www.saucedemo.com/')
 
-try:
-    username_field = driver.find_element('id', 'user-name')
-except NoSuchElementException:
-    print('nie znaleziono pola "user-name" po ID. Szukam po nazwie ')
-    username_field = driver.find_element('name', 'user-name')
+    try:
+        username_field = driver.find_element('id', 'user-name')
+    except NoSuchElementException:
+        print('nie znaleziono pola "user-name" po ID. Szukam po nazwie ')
+        username_field = driver.find_element('name', 'user-name')
+        make_screenshot(driver)
+
+    username_field.clear()
+    username_field.send_keys('standard_user')
+
+    #driver.find_element('id', 'user-name').send_keys('standard_user')
+
+    try:
+        password_field = driver.find_element(By.XPATH, '//*[@id="password"]')
+    except NoSuchElementException:
+        print('Nie znaleziono pola z haslem')
+        driver.quit()
+        raise
+    password_field.clear()
+    password_field.send_keys('secret_sauce')
+    login_button = driver.find_element('name', 'login-button')
+    if not login_button.get_attribute('disable'):
+        login_button.click()
+    else:
+        print('przycisk nieaktywny')
+    time.sleep(2)
     make_screenshot(driver)
-
-username_field.clear()
-username_field.send_keys('standard_user')
-
-#driver.find_element('id', 'user-name').send_keys('standard_user')
-
-try:
-    password_field = driver.find_element(By.XPATH, '//*[@id="password"]')
-except NoSuchElementException:
-    print('Nie znaleziono pola z haslem')
     driver.quit()
-    raise
-password_field.clear()
-password_field.send_keys('secret_sauce')
-
-login_button = driver.find_element('name', 'login-button')
-if not login_button.get_attribute('disable'):
-    login_button.click()
-else:
-    print('przycisk nieaktywny')
-
-time.sleep(2)
-
-make_screenshot(driver)
-
-driver.quit()
