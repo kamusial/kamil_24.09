@@ -10,3 +10,13 @@ page.enter_username('standard_user')
 page.enter_password('secret_sauce')
 page.click_login()
 time.sleep (1)
+
+try:
+    assert driver.current_url == 'https://www.saucedemo.com/inventory.html', make_screenshot(driver)
+except AssertionError:
+    print('Błąd, adres url się nie zgadza')
+    raise
+else:
+    print('ok')
+finally:
+    driver.quit()
