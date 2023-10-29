@@ -2,7 +2,7 @@
 Library    SeleniumLibrary
 
 *** Variables ***
-
+${error_message}     Podany login lub hasło są nieprawidłowe. Spróbuj jeszcze raz później.
 
 *** Keywords ***
 Log In Wikipedia
@@ -15,9 +15,17 @@ Log In Wikipedia
     Input Text    id:wpName1    ${login}
     Input Password    id:wpPassword1    ${password}
     Click Button    id:wpLoginAttempt
-    sleep    5
+    Sleep    2
 *** Test Cases ***
 Successful login
     Log In Wikipedia      RobotTests      RobotFramework
-    input text    name:search   Teoria Wielkiego Podrywu
-    click button    xpath=/html/body/div[1]/header/div[2]/div/div/div/form/div/button
+    Input Text    name:search   Teoria Wielkiego Podrywu
+    Click Button    xpath=/html/body/div[1]/header/div[2]/div/div/div/form/div/button
+    Close Browser
+Unsuccessful login
+    Log In Wikipedia    xxxx    xxxx
+    ${my_error_message}    Get Text    xpath=//*[@id="userloginForm"]/form/div[1]/div
+    Log    ${my_error_message}
+    Log To Console     ${my_error_message}
+    Should Be Equal As Strings    ${my_error_message}    ${error_message}
+    Close Browser
