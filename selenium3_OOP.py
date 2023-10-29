@@ -5,7 +5,7 @@ from selenium import webdriver
 class LoginPage:
     def __init__(self, driver):
         self.driver = driver
-        self.username_field_id = 'user-name'
+        self.username_field_id= 'user-name'
         self.password_field_id = 'password'
         self.login_button_name = 'login-button'
 

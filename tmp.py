@@ -11,3 +11,7 @@ except ZeroDivisionError:
 print('dalsza częsć programu')
 
 
+def test1():
+    assert fizzbuzz(3) == 'fizz'
+
+
