@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.11.2 on win32)" generated="20230924 14:43:14.148" rpa="false" schemaversion="4">
+<robot generator="Robot 6.1.1 (Python 3.11.2 on win32)" generated="20231029 11:29:34.466" rpa="false" schemaversion="4">
 <suite id="s1" name="Pierwszyrobot" source="C:\Users\vdi-student\Desktop\kamil_24.09\pierwszyrobot.robot">
-<test id="s1-t1" name="Log In Wikipedia" line="11">
+<test id="s1-t1" name="Successful login" line="20">
+<kw name="Log In Wikipedia">
+<arg>RobotTests</arg>
+<arg>RobotFramework</arg>
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>https://pl.wikipedia.org</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20230924 14:43:14.393" level="INFO">Opening browser 'chrome' to base url 'https://pl.wikipedia.org'.</msg>
-<status status="PASS" starttime="20230924 14:43:14.393" endtime="20230924 14:43:16.186"/>
+<msg timestamp="20231029 11:29:34.686" level="INFO">Opening browser 'chrome' to base url 'https://pl.wikipedia.org'.</msg>
+<status status="PASS" starttime="20231029 11:29:34.686" endtime="20231029 11:29:36.301"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20231029 11:29:36.301" endtime="20231029 11:29:36.444"/>
 </kw>
 <kw name="Run Keyword And Ignore Error" library="BuiltIn">
 <arg>Click Element</arg>
@@ -16,55 +23,71 @@
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>id:nieistniejace</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230924 14:43:16.194" level="INFO">Clicking element 'id:nieistniejace'.</msg>
-<msg timestamp="20230924 14:43:16.398" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg timestamp="20230924 14:43:16.398" level="FAIL">Element with locator 'id:nieistniejace' not found.</msg>
-<status status="FAIL" starttime="20230924 14:43:16.193" endtime="20230924 14:43:16.401"/>
+<msg timestamp="20231029 11:29:36.445" level="INFO">Clicking element 'id:nieistniejace'.</msg>
+<msg timestamp="20231029 11:29:36.595" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-18.png"&gt;&lt;img src="selenium-screenshot-18.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231029 11:29:36.595" level="FAIL">Element with locator 'id:nieistniejace' not found.</msg>
+<status status="FAIL" starttime="20231029 11:29:36.444" endtime="20231029 11:29:36.595"/>
 </kw>
-<status status="PASS" starttime="20230924 14:43:16.193" endtime="20230924 14:43:16.401"/>
+<status status="PASS" starttime="20231029 11:29:36.444" endtime="20231029 11:29:36.595"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>id:pt-login-2</arg>
 <arg>5</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20230924 14:43:16.402" endtime="20230924 14:43:16.427"/>
+<status status="PASS" starttime="20231029 11:29:36.595" endtime="20231029 11:29:36.620"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>id:pt-login-2</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230924 14:43:16.428" level="INFO">Clicking element 'id:pt-login-2'.</msg>
-<status status="PASS" starttime="20230924 14:43:16.428" endtime="20230924 14:43:17.547"/>
+<msg timestamp="20231029 11:29:36.620" level="INFO">Clicking element 'id:pt-login-2'.</msg>
+<status status="PASS" starttime="20231029 11:29:36.620" endtime="20231029 11:29:37.543"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>id:wpName1</arg>
-<arg>RobotTests</arg>
+<arg>${login}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230924 14:43:17.549" level="INFO">Typing text 'RobotTests' into text field 'id:wpName1'.</msg>
-<status status="PASS" starttime="20230924 14:43:17.548" endtime="20230924 14:43:17.649"/>
+<msg timestamp="20231029 11:29:37.544" level="INFO">Typing text 'RobotTests' into text field 'id:wpName1'.</msg>
+<status status="PASS" starttime="20231029 11:29:37.543" endtime="20231029 11:29:37.642"/>
 </kw>
 <kw name="Input Password" library="SeleniumLibrary">
 <arg>id:wpPassword1</arg>
-<arg>RobotFramework</arg>
+<arg>${password}</arg>
 <doc>Types the given password into the text field identified by ``locator``.</doc>
-<msg timestamp="20230924 14:43:17.650" level="INFO">Typing password into text field 'id:wpPassword1'.</msg>
-<msg timestamp="20230924 14:43:17.686" level="INFO">Temporally setting log level to: NONE</msg>
-<msg timestamp="20230924 14:43:17.748" level="INFO">Log level changed from NONE to INFO.</msg>
-<status status="PASS" starttime="20230924 14:43:17.649" endtime="20230924 14:43:17.748"/>
+<msg timestamp="20231029 11:29:37.642" level="INFO">Typing password into text field 'id:wpPassword1'.</msg>
+<msg timestamp="20231029 11:29:37.676" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20231029 11:29:37.731" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20231029 11:29:37.642" endtime="20231029 11:29:37.731"/>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>id:wpLoginAttempt</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20230924 14:43:17.750" level="INFO">Clicking button 'id:wpLoginAttempt'.</msg>
-<status status="PASS" starttime="20230924 14:43:17.749" endtime="20230924 14:43:22.182"/>
+<msg timestamp="20231029 11:29:37.731" level="INFO">Clicking button 'id:wpLoginAttempt'.</msg>
+<status status="PASS" starttime="20231029 11:29:37.731" endtime="20231029 11:29:42.042"/>
 </kw>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20230924 14:43:22.291" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20230924 14:43:22.182" endtime="20230924 14:43:22.291"/>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231029 11:29:47.043" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20231029 11:29:42.042" endtime="20231029 11:29:47.043"/>
 </kw>
-<status status="PASS" starttime="20230924 14:43:14.393" endtime="20230924 14:43:22.291"/>
+<status status="PASS" starttime="20231029 11:29:34.686" endtime="20231029 11:29:47.043"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>name:search</arg>
+<arg>Teoria Wielkiego Podrywu</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231029 11:29:47.044" level="INFO">Typing text 'Teoria Wielkiego Podrywu' into text field 'name:search'.</msg>
+<status status="PASS" starttime="20231029 11:29:47.044" endtime="20231029 11:29:47.153"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath=/html/body/div[1]/header/div[2]/div/div/div/form/div/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231029 11:29:47.154" level="INFO">Clicking button 'xpath=/html/body/div[1]/header/div[2]/div/div/div/form/div/button'.</msg>
+<status status="PASS" starttime="20231029 11:29:47.153" endtime="20231029 11:29:48.706"/>
+</kw>
+<status status="PASS" starttime="20231029 11:29:34.681" endtime="20231029 11:29:48.707"/>
 </test>
-<status status="PASS" starttime="20230924 14:43:14.153" endtime="20230924 14:43:22.293"/>
+<status status="PASS" starttime="20231029 11:29:34.466" endtime="20231029 11:29:48.708"/>
 </suite>
 <statistics>
 <total>
